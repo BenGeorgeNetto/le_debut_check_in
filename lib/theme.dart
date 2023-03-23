@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:le_debut_check_in/text_theme.dart';
 
 import 'colors.dart';
 
@@ -25,5 +26,6 @@ class MyDarkThemeStyle {
         ),
       ),
     ),
+    textTheme: customTextTheme,
   );
 }
