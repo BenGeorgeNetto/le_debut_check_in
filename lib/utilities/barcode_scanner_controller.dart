@@ -100,18 +100,22 @@ class _BarcodeScannerWithControllerState
                     this.barcode = barcode;
                   });
 
-                  if (barcode.barcodes.first.displayValue!.contains("FNV") ||
-                      barcode.barcodes.first.displayValue!.contains("VEG") ||
-                      barcode.barcodes.first.displayValue!.contains("NOF")) {
-                    // printDocuments();
-                    updateCheckinStatus(barcode.barcodes.first.displayValue!);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ParticipantDetails(
-                            checksum: barcode.barcodes.first.displayValue),
-                      ),
-                    );
+                  try {
+                    if (barcode.barcodes.first.displayValue!.contains("FNV") ||
+                        barcode.barcodes.first.displayValue!.contains("VEG") ||
+                        barcode.barcodes.first.displayValue!.contains("NOF")) {
+                      // printDocuments();
+                      updateCheckinStatus(barcode.barcodes.first.displayValue!);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ParticipantDetails(
+                              checksum: barcode.barcodes.first.displayValue),
+                        ),
+                      );
+                    }
+                  } on Exception catch (e) {
+                    debugPrint(e.toString());
                   }
 
                   // print(

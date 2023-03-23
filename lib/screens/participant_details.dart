@@ -18,6 +18,9 @@ class _ParticipantDetailsState extends State<ParticipantDetails> {
     final parts = widget.checksum?.split('-');
     final document =
         FirebaseFirestore.instance.collection('participant').doc(parts![3]);
+    if (document.id == 'null' || document.id.isEmpty) {
+      Navigator.pop(context);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -41,12 +44,6 @@ class _ParticipantDetailsState extends State<ParticipantDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
-                // children: [
-                //   Text('Name: ${snapshot.data!.get('name')}'),
-                //   Text('Email: ${snapshot.data!.get('email')}'),
-                //   Text('Phone: ${snapshot.data!.get('phone')}'),
-                //   Text('Checked In: ${snapshot.data!.get('checkedIn')}'),
-                // ],
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
