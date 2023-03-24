@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:le_debut_check_in/cloud_functions/participant_count.dart';
 
 void updateCheckinStatus(String checksum) async{
 
   final parts = checksum.split('-');
-  print(parts[3]);
+  // print(parts[3]);
 
   final participants = FirebaseFirestore.instance.collection('participant');
 
@@ -12,6 +13,9 @@ void updateCheckinStatus(String checksum) async{
   await document.update({
     'checkedIn': "TRUE",
   });
+
+  getParticipantsCountTrue();
+  getParticipantsCountFalse();
 
 }
 
