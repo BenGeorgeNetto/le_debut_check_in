@@ -84,10 +84,12 @@ class _ParticipantDetailsState extends State<ParticipantDetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text('Email ID:'),
-                            Expanded(
+                            Flexible(
+                              fit: FlexFit.loose,
                               child: Text(
                                 snapshot.data!.get('email'),
                                 overflow: TextOverflow.ellipsis,
+                                softWrap: false,
                               ),
                             )
                           ],

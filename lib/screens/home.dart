@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:le_debut_check_in/colors.dart';
+import 'package:le_debut_check_in/screens/checkedin_participants.dart';
+import 'package:le_debut_check_in/screens/yet_to_checkin.dart';
 import 'package:le_debut_check_in/utilities/barcode_scanner_controller.dart';
 
 class Home extends StatefulWidget {
@@ -76,6 +78,57 @@ class _HomeState extends State<Home> {
                               ),
                             ],
                           ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 48.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const CheckedInParticipants(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(24.0))),
+                            padding: const EdgeInsets.all(16.0),
+                            elevation: 8.0,
+                            backgroundColor: surfColor,
+                            foregroundColor: Colors.black,
+                          ),
+                          child: const Text('Checked In Participants'),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                const YetToCheckin(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(24.0))),
+                            padding: const EdgeInsets.all(16.0),
+                            elevation: 8.0,
+                            backgroundColor: surfColor,
+                            foregroundColor: Colors.black,
+                          ),
+                          child: const Text('Not Checked In Participants'),
                         ),
                       ),
                     ],
