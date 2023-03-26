@@ -104,8 +104,14 @@ class _BarcodeScannerWithControllerState
                     if (barcode.barcodes.first.displayValue!.contains("FNV") ||
                         barcode.barcodes.first.displayValue!.contains("VEG") ||
                         barcode.barcodes.first.displayValue!.contains("NOF")) {
+                      //for debug
                       // printDocuments();
-                      updateCheckinStatus(barcode.barcodes.first.displayValue!);
+
+                      // for first day
+                      // updateCheckinStatus(barcode.barcodes.first.displayValue!);
+
+                      // for second day
+                      updateCheckinStatusDay2(barcode.barcodes.first.displayValue!);
                       Navigator.push(
                         context,
                         MaterialPageRoute(

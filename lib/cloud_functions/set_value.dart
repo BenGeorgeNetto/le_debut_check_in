@@ -19,6 +19,22 @@ void updateCheckinStatus(String checksum) async{
 
 }
 
+void updateCheckinStatusDay2(String checksum) async {
+  final parts = checksum.split('-');
+
+  final participants = FirebaseFirestore.instance.collection('participants_day2');
+
+  final document = participants.doc(parts[3]);
+
+  await document.update({
+    'checkedIn': "TRUE",
+  });
+
+  getParticipantsCountTrue2();
+  getParticipantsCountFalse2();
+
+}
+
 // void printDocuments() async {
 //   // Get a reference to the Firestore instance
 //   final firestore = FirebaseFirestore.instance;

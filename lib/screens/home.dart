@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
         title: const Text('Le Debut'),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection('count').snapshots(),
+        stream: FirebaseFirestore.instance.collection('count_day2').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
